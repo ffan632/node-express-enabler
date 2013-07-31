@@ -1,0 +1,5 @@
+<domainType class="com.datasynapse.fabric.broker.domain.DefaultDomainType">
+	<property name="name" value="Nodejs Express" />
+	<property name="description" value="Application Component Type for creating Node JS Application Components" />
+	<property name="dependentGridLib" value="nodejs-experss-container" />
+</domainType>

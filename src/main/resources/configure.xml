@@ -1,0 +1,13 @@
+<containerConfig name="Nodejs Express 0.10.13 Container - version 1.0">
+	<configFiles baseDir="${CONTAINER_WORK_DIR}" include="container_env.js">
+		<regex pattern='#LISTEN_PORT#' replacement='${LISTEN_PORT}' />
+        <regex pattern='#LISTEN_PORT_SSL#' replacement='${LISTEN_PORT_SSL}' />
+        <regex pattern='#SSL_KEY_FILE#' replacement='${SSL_KEY_FILE}' />
+        <regex pattern='#SSL_KEY_PASSWORD#' replacement='${SSL_KEY_PASSWORD}' />
+        <regex pattern='#SSL_TRUSTED_CA_FILE#' replacement='${SSL_TRUSTED_CA_FILE}' />
+        <regex pattern='#HTTPS_ENABLED#' replacement='${HTTPS_ENABLED}' />
+        <regex pattern='#HTTP_ENABLED#' replacement='${HTTP_ENABLED}' />
+        <regex pattern='#SERVER_STATS_ENABLED#' replacement='${SERVER_STATS_ENABLED}' />
+        <regex pattern='#SERVER_STATS_PATH#' replacement='${SERVER_STATS_PATH}' />
+     </configFiles>
+</containerConfig>

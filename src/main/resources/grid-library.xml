@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grid-library>
+    <grid-library-name>nodejs-experss-container</grid-library-name>
+    <grid-library-version>${project.version}</grid-library-version>
+    <!-- No JRE arguments -->
+    <dependency>
+        <grid-library-name>nodejs-distribution</grid-library-name>
+        <grid-library-version>${nodejs-distro-version}</grid-library-version>
+    </dependency>
+    <dependency>
+        <grid-library-name>express-distribution</grid-library-name>
+        <grid-library-version>${express-distro-version}</grid-library-version>
+    </dependency>
+    <!-- No conflicts -->
+
+    <jar-path>
+        <pathelement>ds_jars</pathelement>
+    </jar-path>
+
+    <!-- No library paths -->
+
+    <!-- No assembly paths -->
+
+    <!-- No command paths -->
+
+    <!-- No hooks paths -->
+
+    <!-- No environment variables -->
+
+    <!-- No system properties -->
+
+</grid-library>

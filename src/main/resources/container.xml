@@ -1,0 +1,121 @@
+<container class="com.datasynapse.fabric.container.node.express.NodeContainer">
+	<import package="com.datasynapse.fabric.container" />
+	<import package="com.datasynapse.fabric.domain" />
+	<import package="com.datasynapse.fabric.common" />
+	<import package="com.datasynapse.fabric.stats" />
+	<import package="com.datasynapse.fabric.stats.aggregator" />
+	<import package="com.datasynapse.fabric.stats.evaluator" />
+	<import package="com.datasynapse.fabric.stats.provider" />
+	<import package="com.datasynapse.fabric.container.node.express" />
+
+	<!-- <property name="targetConfigDir" value="${SERVER_RUNTIME_DIR}"/> -->
+	<property name="blocking" value="True" />
+	<property name="distributionVersion" value="${nodejs-distro-version}" />
+	<property name="supportedDomainType" value="Nodejs Express" />
+	<property name="shutdownTimeout" value="120000" />
+	<property name="name" value="Nodejs Express Container" />
+	<property name="version" value="${project.version}" />
+	<property name="description" value="Container provide by DataSynapse for running Nodejs Express framework" />
+	<property name="modified" value="False" />
+
+	<unixcommand class="com.datasynapse.fabric.container.LifecycleCommand">
+		<property name="startupCommand" value="${CONTAINER_WORK_DIR}/container.sh ${MAIN_SCRIPT}" />
+	</unixcommand>
+
+	<windowscommand class="com.datasynapse.fabric.container.LifecycleCommand">
+		<property name="startupCommand" value='"${CONTAINER_WORK_DIR}/container.cmd" ${MAIN_SCRIPT}' />
+	</windowscommand>
+	<startCondition class="NodeStartCondition">
+		<property name="pollPeriod" value="15000" />
+	</startCondition>
+	<runningCondition class="NodeRunningCondition">
+		<property name="pollPeriod" value="30000" />
+	</runningCondition>
+
+	<runtimecontexttemplate class="com.datasynapse.fabric.common.DefaultRuntimeContext">
+	    <!--  delete me temp dev feature -->
+	    <variable class="RuntimeContextVariable">
+            <property name="name" value="DELETE_RUNTIME_DIR_ON_SHUTDOWN" />
+            <property name="value" value="false" />
+            <property name="type" value="String" />
+            <property name="description" value="testing feature" />
+        </variable>
+		<variable class="RuntimeContextVariable">
+			<property name="name" value="LISTEN_PORT" />
+			<property name="value" value="9000" />
+			<property name="type" value="String" />
+			<property name="autoIncrementType" value="Numeric" />
+			<property name="description" value="Web Server listening port" />
+		</variable>
+		<variable class="RuntimeContextVariable">
+			<property name="name" value="LISTEN_PORT_SSL" />
+			<property name="value" value="443" />
+			<property name="type" value="String" />
+			<property name="autoIncrementType" value="Numeric" />
+			<property name="description" value="Web Server SSL listening port" />
+		</variable>
+        <variable class="RuntimeContextVariable">
+            <property name="name" value="SSL_KEY_FILE" />
+            <property name="value" value="" />
+            <property name="type" value="String" />
+            <property name="description" value="SSL key file" />
+        </variable>
+        <variable class="RuntimeContextVariable">
+            <property name="name" value="SSL_KEY_PASSWORD" />
+            <property name="value" value="" />
+            <property name="type" value="encrypted" />
+            <property name="description" value="SSL key password" />
+        </variable>         		
+        <variable class="RuntimeContextVariable">
+            <property name="name" value="SSL_TRUSTED_CA_FILE" />
+            <property name="value" value="" />
+            <property name="type" value="String" />
+            <property name="description" value="SSL Trusted CA file" />
+        </variable>     
+        <variable class="RuntimeContextVariable">
+            <property name="name" value="SERVER_STATS_ENABLED" />
+            <property name="value" value="false" />
+            <property name="type" value="String" />
+            <property name="description" value="If server statistics is enabled, reference documentation on how to enable server statistics" />
+        </variable>		
+        <variable class="RuntimeContextVariable">
+            <property name="name" value="SERVER_STATS_PATH" />
+            <property name="value" value="/server-stats" />
+            <property name="type" value="String" />
+            <property name="description" value="URL path to retrieve server statistics" />
+        </variable>
+        <variable class="RuntimeContextVariable">
+            <property name="name" value="MAIN_SCRIPT" />
+            <property name="value" value="sample/app.js" />
+            <property name="type" value="String" />
+            <property name="description" value="the main script to execute with" />           
+        </variable>         	        
+	</runtimecontexttemplate>
+
+	<supportedFeature class="Feature">
+		<property name="name" value="HTTP Support" />
+		<property name="description" value="Support for HTTP routing" />
+		<property name="infoDescription" value="Specify the protocols to report to the Broker for HTTP routing." />
+		<property name="infoClass" value="com.datasynapse.fabric.domain.featureinfo.HttpFeatureInfo" />
+	</supportedFeature>
+
+	<supportedFeature class="Feature">
+		<property name="name" value="Application Logging Support" />
+		<property name="description" value="Support for handling of custom application logs" />
+		<property name="infoDescription" value="Specify if application logs are archived to the Engine log directory for viewing/searching. &lt;i>Note: The current application logs are still available for viewing/searching if this is not checked.&lt;/i>" />
+		<property name="infoClass" value="com.datasynapse.fabric.container.node.express.NodeApplicationLoggingInfo" />
+	</supportedFeature>
+
+	<statisticsProvider class="NodeStatisticsProvider">
+		<supportedStatistic class="com.datasynapse.fabric.container.node.express.NodeStatisticsMetadata">
+			<property name="name" value="Total Accesses" />
+			<property name="description" value="Total requests processed since last started." />
+			<property name="default" value="false" />
+			<property name="units" value="requests" />
+			<property name="internalName" value="Total Accesses" />
+			<aggregator class="SourceAveragedAggregator">
+				<property name="inputStatisticName" value="Total Accesses" />
+			</aggregator>
+		</supportedStatistic>
+	</statisticsProvider>
+</container>
