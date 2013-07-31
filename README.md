@@ -28,25 +28,19 @@ Distribution Grid Library
   * Download node.js binary for your platform from http://nodejs.org/download/
   * Unpack the node.js archive, rename the top level directory (for example, node-v0.10.15-linux-x64 ) to **node**
   * Create a distribution Grid Library with the **node** directory and **grid-library.xml** such as the following:  
-```
+```XML
     <grid-library os="linux64">
-    
         <grid-library-name>nodejs-distribution</grid-library-name>
-    
         <grid-library-version>{nodejs-distro-version}</grid-library-version>
-    
     </grid-library>
 ```
 * Build express-distribution
   * With node.js installed, install certain version of express in the current directory with npm  "npm install express@<version>"
   * Create a distribution Grid Library with the **node_modules** directory and **grid-library.xml** such as the following:  
-```
+```XML
     <grid-library os="linux64">
-
         <grid-library-name>express-distribution</grid-library-name>
-
         <grid-library-version>{express-distro-version}</grid-library-version>
-
     </grid-library>
 ```
 
@@ -80,10 +74,10 @@ Configuration
 --------------------------------------
 * Configure HTTP
   * "Edit Component" -> "Add/edit Application Component features" -> Edit "Http Support" Feature, check on "Http Enabled".
-  * Choose HTTP port by setting the "LISTEN_PORT" Runtime_Context_Variable
+  * Choose HTTP port by setting the **LISTEN_PORT** Runtime_Context_Variable
 * Configure HTTPS
   * "Edit Component" -> "Add/edit Application Component features" -> Edit "Http Support" Feature, check on "Https Enabled".
-  * Choose HTTPS port by setting the "LISTEN_PORT_SSL" Runtime_Context_Variable; Optionally set up server credential with "SSL_KEY_FILE", "SSL_KEY_PASSWORD" and "SSL_TRUSTED_CA_FILE" variables
+  * Choose HTTPS port by setting the **LISTEN_PORT_SSL** Runtime_Context_Variable; Optionally set up server credential with **SSL_KEY_FILE**, **SSL_KEY_PASSWORD** and **SSL_TRUSTED_CA_FILE** variables
 
 The container collects these information and installs **container_env.js** by the side of the application's top director, the application can pickup these information by importing this module. 
 Here is a code snippet extracted from sample/app.js installed by the container
@@ -128,8 +122,7 @@ Statistics
 So far we only support very few server statistics. 
 * **Total Accesses** - Total requests processed since last started.
 To enable statistics in the application, you need to call app.use() to "connect" container provided statistics function (as in the previous example). You also need to set following Runtime_Context_Variables:
-* SERVER_STATS_ENABLED
-* SERVER_STATS_PATH
+**SERVER_STATS_ENABLED** and **SERVER_STATS_PATH**
 
 Runtime Context Variables
 --------------------------------------
