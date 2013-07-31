@@ -33,23 +33,16 @@
 	</runningCondition>
 
 	<runtimecontexttemplate class="com.datasynapse.fabric.common.DefaultRuntimeContext">
-	    <!--  delete me temp dev feature -->
-	    <variable class="RuntimeContextVariable">
-            <property name="name" value="DELETE_RUNTIME_DIR_ON_SHUTDOWN" />
-            <property name="value" value="false" />
-            <property name="type" value="String" />
-            <property name="description" value="testing feature" />
-        </variable>
 		<variable class="RuntimeContextVariable">
 			<property name="name" value="LISTEN_PORT" />
-			<property name="value" value="9000" />
+			<property name="value" value="8080" />
 			<property name="type" value="String" />
 			<property name="autoIncrementType" value="Numeric" />
 			<property name="description" value="Web Server listening port" />
 		</variable>
 		<variable class="RuntimeContextVariable">
 			<property name="name" value="LISTEN_PORT_SSL" />
-			<property name="value" value="443" />
+			<property name="value" value="8443" />
 			<property name="type" value="String" />
 			<property name="autoIncrementType" value="Numeric" />
 			<property name="description" value="Web Server SSL listening port" />
