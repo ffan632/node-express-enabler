@@ -5,7 +5,7 @@ Node.js Express Enabler Guide
 
 Introduction
 --------------------------------------
-This is a TIBCO Silver Fabric Enabler for NodeJS Express applications. With this Enabler, Silver Fabric Server can automatically provisions, orchestrates, controls and manages Node.js Express applications. 
+This is a TIBCO Silver Fabric Enabler for node.js Express applications. With this Enabler, Silver Fabric Server can automatically provisions, orchestrates, controls and manages Node.js Express applications. 
 Since Express applications don't use configuration file, the Enabler installs 'container_env.js' with the application. The application needs to import this module to pickup configuration information. The 
 changes are minimum, please reference the sample app in the Configuration section.   
 
@@ -26,9 +26,9 @@ Distribution Grid Library
 --------------------------------------
 * Build nodejs-distribution
 ** Download node.js binary for your platform from http://nodejs.org/download/
-** Unpack the node.js archive, rename the top level directory (for example, node-v0.10.15-linux-x64 ) to **node**
-** Create a distribution Grid Library with the **node** directory and **grid-library.xml** such as the following:  
-```XML
+** Unpack the node.js archive, rename the top level directory (for example, node-v0.10.15-linux-x64 ) to "node"
+** Create a distribution Grid Library with the "node" directory and "grid-library.xml" such as the following:  
+```
     <grid-library os="linux64">
         <grid-library-name>nodejs-distribution</grid-library-name>
         <grid-library-version>{nodejs-distro-version}</grid-library-version>
@@ -36,8 +36,8 @@ Distribution Grid Library
 ```
 * Build express-distribution
 ** With node.js installed, install certain version of express in the current directory with npm  "npm install express@<version>"
-** Create a distribution Grid Library with the "node_modules" directory and **grid-library.xml** such as the following:  
-```XML
+** Create a distribution Grid Library with the "node_modules" directory and "grid-library.xml" such as the following:  
+```
     <!-- os can be either linux or linux64 -->
     <grid-library os="linux64">
         <grid-library-name>express-distribution</grid-library-name>
