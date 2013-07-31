@@ -27,7 +27,8 @@ Distribution Grid Library
 * Build nodejs-distribution
   * Download node.js binary for your platform from http://nodejs.org/download/
   * Unpack the node.js archive, rename the top level directory (for example, node-v0.10.15-linux-x64 ) to **node**
-  * Create a distribution Grid Library with the **node** directory and **grid-library.xml** such as the following:  
+  * Create a distribution Grid Library with the **node** directory and **grid-library.xml** such as the following:
+    
 ```
     <grid-library os="linux64">
         <grid-library-name>nodejs-distribution/grid-library-name>
@@ -37,6 +38,7 @@ Distribution Grid Library
 * Build express-distribution
   * With node.js installed, install certain version of express in the current directory with npm  "npm install express@<version>"
   * Create a distribution Grid Library with the **node_modules** directory and **grid-library.xml** such as the following:  
+
 ```
     <grid-library os="linux64">
         <grid-library-name>express-distribution</grid-library-name>
