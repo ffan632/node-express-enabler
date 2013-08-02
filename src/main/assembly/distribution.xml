@@ -30,13 +30,5 @@
 			</includes>
 		</fileSet>
 	</fileSets>
-    <dependencySets>
-        <dependencySet>
-            <outputDirectory>ds_jars</outputDirectory>
-            <includes>
-                <include>org.apache.commons:commons-compress</include>
-            </includes>
-        </dependencySet>
-    </dependencySets>	
 </assembly>
 

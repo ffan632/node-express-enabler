@@ -33,7 +33,13 @@
 	</runningCondition>
 
 	<runtimecontexttemplate class="com.datasynapse.fabric.common.DefaultRuntimeContext">
-		<variable class="RuntimeContextVariable">
+        <variable class="RuntimeContextVariable">
+            <property name="name" value="FILE_ARCHIVE_DEPLOY_DIRECTORY" />
+            <property name="value" value="${CONTAINER_WORK_DIR}" />
+            <property name="type" value="String" />
+            <property name="description" value="Directory to where uploaded application zip file will be unzipped" />
+        </variable>		
+        <variable class="RuntimeContextVariable">
 			<property name="name" value="LISTEN_PORT" />
 			<property name="value" value="8080" />
 			<property name="type" value="String" />
@@ -67,7 +73,7 @@
         </variable>     
         <variable class="RuntimeContextVariable">
             <property name="name" value="SERVER_STATS_ENABLED" />
-            <property name="value" value="false" />
+            <property name="value" value="true" />
             <property name="type" value="String" />
             <property name="description" value="If server statistics is enabled, reference documentation on how to enable server statistics" />
         </variable>		
@@ -99,6 +105,13 @@
 		<property name="infoClass" value="com.datasynapse.fabric.container.node.express.NodeApplicationLoggingInfo" />
 	</supportedFeature>
 
+    <supportedfeature class="com.datasynapse.fabric.container.Feature">
+        <property name="name" value="File Archive Support" />
+        <property name="description" value="Support for delpoying generic archives" />
+        <property name="infoDescription" value="Specify the list of archives and the target directory to which to deploy them." />
+        <property name="infoClass" value="com.datasynapse.fabric.domain.featureinfo.FileArchiveFeatureInfo" />
+    </supportedfeature>
+    
 	<statisticsProvider class="NodeStatisticsProvider">
 		<supportedStatistic class="com.datasynapse.fabric.container.node.express.NodeStatisticsMetadata">
 			<property name="name" value="Total Accesses" />

@@ -169,11 +169,6 @@
 			<version>${fabric-version}</version>
 			<scope>system</scope>
 			<systemPath>${fabric-location}</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-compress</artifactId>
-            <version>1.4</version>
         </dependency>		
 	</dependencies>
 </project>
